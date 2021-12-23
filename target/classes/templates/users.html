@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/general.html :: headerfragment"></div>
+<body>
+<div th:replace="fragments/general.html :: navfragment"></div>
+
+<div class="container">
+	<div class="row">
+		<h4 class="lead">VIEW USERS</h4>
+	</div>
+	<div class="row">
+		<div class="container">
+			<table class="table-bordered table-hover table">
+				<thead class="thead-dark">
+					<tr>
+						<td>SL</td>
+						<td>EMPLOYEE_ID</td>
+						<td>FULLNAME</td>
+						<td>DESIGNATION</td>
+						<td>EMAIL</td>
+						<td>CONTACT_NO</td>
+						<td>GENDER</td>
+						<td>JOINING_DATE</td>
+						<td>PASSWORD</td>
+						<td>ACTION_1</td>
+						<td>ACTION_2</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user, userStat : ${users}">
+						<td th:text="${userStat.count}"></td>
+						<td th:text="${user.getEmployeeId()}"></td>
+						<td th:text="${user.getFullName()}"></td>
+						<td th:text="${user.getDesignation()}"></td>
+						<td th:text="${user.getEmail()}"></td>
+						<td th:text="${user.getContactNo()}"></td>
+						<td th:text="${user.getGender()}"></td>
+						<td th:text="${user.getJoiningDate()}"></td>
+						<td th:text="${user.getPassword()}"></td>
+						<td><a th:href="@{/users/edit/{id} (id=${user.getId()})}">edit</a></td>
+						<td><a th:href="@{/users/delete/{id} (id=${user.getId()})}">delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div th:replace="fragments/general.html :: footerfragment"></div>
+<div th:replace="fragments/general.html :: scriptfragment"></div>
+</body>
+</html>

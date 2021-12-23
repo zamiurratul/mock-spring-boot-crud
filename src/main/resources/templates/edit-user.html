@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="fragments/general.html :: headerfragment"></div>
+<body>
+<div th:replace="fragments/general.html :: navfragment"></div>
+
+<div class="container">
+	<div class="row">
+		<h4 class="lead">EDIT USER</h4>
+	</div>
+	<div class="row">
+		<div class="container">
+			<form th:action="@{/users/update}" method="post" th:object="${user}" class="form">
+				<input type="hidden" id="id" name="id" th:field="*{id}">
+				<div class="row form-group">
+					<label class="col-xl-2" for="employeeId">Employee Id:</label>
+					<input class="col-xl-4 form-control" id="employeeId" name="employeeId" th:field="*{employeeId}">
+					<span class="text-danger" th:if="${#fields.hasErrors('employeeId')}" th:errors="*{employeeId}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="designation">Designation:</label>
+					<input class="col-xl-4 form-control" id="designation" name="designation" th:field="*{designation}">
+					<span class="text-danger" th:if="${#fields.hasErrors('designation')}" th:errors="*{designation}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="fullName">Full Name:</label>
+					<input class="col-xl-4 form-control" id="employeeId" name="fullName" th:field="*{fullName}">
+					<span class="text-danger" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="email">Email:</label>
+					<input class="col-xl-4 form-control" id="email" name="email" th:field="*{email}">
+					<span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="contactNo">Contact No:</label>
+					<input class="col-xl-4 form-control" id="contactNo" name="contactNo" th:field="*{contactNo}">
+					<span class="text-danger" th:if="${#fields.hasErrors('contactNo')}" th:errors="*{contactNo}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="gender">Gender:</label>
+					<select class="col-xl-4 form-control" id="gender" name="gender" th:field="*{gender}">
+						<option value="FEMALE">Female</option>
+						<option value="MALE">Male</option>
+						<option value="OTHERS">Others</option>
+					</select>
+					<span class="text-danger" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="joiningDate">Joining Date:</label>
+					<input type="date" class="col-xl-4 form-control" id="joiningDate" name="joiningDate" th:field="*{joiningDate}">
+					<span class="text-danger" th:if="${#fields.hasErrors('joiningDate')}" th:errors="*{joiningDate}"></span>
+				</div>
+				<div class="row form-group">
+					<label class="col-xl-2" for="password">Password:</label>
+					<input type="password" class="col-xl-4 form-control" id="password" name="password" th:field="*{password}">
+					<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+				</div>
+				<div class="row form-group">
+					<button type="submit" class="btn btn-outline-primary">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<p>---</p>
+	</div>
+</div>
+
+<div th:replace="fragments/general.html :: footerfragment"></div>
+<div th:replace="fragments/general.html :: scriptfragment"></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfragment">
+<meta charset="UTF-8">
+<title>Spring-Boot CRUD</title>
+<link rel="stylesheet" th:href="@{/css/app.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+	<nav class="navbar navbar-default bg-light" th:fragment="navfragment">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<h4 class="navbar-brand">SPRING</h4>
+			</div>
+		</div>
+		<ul class="nav">
+			<li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/users/registration}">Register</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/users/all}">Users</a></li>
+			<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
+		</ul>
+	</nav>
+	<footer class="footer" th:fragment="footerfragment">
+		<div class="container-fluid">
+			<div class="row">
+				<p class="text-muted custom-center">copyright@2021</p>
+			</div>
+		</div>
+	</footer>
+	<div th:fragment="scriptfragment">
+		<script type="text/javascript" th:src="@{/js/app.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+	</div>
+</body>
+</html>
